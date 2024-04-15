@@ -3,6 +3,7 @@ from flask_restx import Namespace, Resource, fields
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+import logging
 
 from .base_route import BaseRoute
 import main_app.grpc.useraccount_pb2 as useraccount_pb2
@@ -10,7 +11,7 @@ import main_app.grpc.useraccount_pb2_grpc as useraccount_pb2_grpc
 from main_app.models.users import UserModel, CreateUserReqrModel, User
 
 api = Namespace('users', description='Users related operations')
-
+_logger = logging.getLogger(__name__)
    
 @api.route('/')
 class CreateUser(BaseRoute, Resource):
@@ -20,6 +21,7 @@ class CreateUser(BaseRoute, Resource):
 
     @api.doc('list_users')
     def get(self):
+        _logger.info('Testing...')
         return Response('All Users')
 
     @api.doc('create_user')
