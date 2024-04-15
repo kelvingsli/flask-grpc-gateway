@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "useraccount";
+option java_outer_classname = "UserAccountProto";
+option objc_class_prefix = "UA";
+
+package useraccount;
+
+// Interface exported by the server.
+service UserAccount {
+  rpc GetUser(UserId) returns (User) {}
+  rpc CreateUser(CreateUserRequest) returns (User) {}
+  rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {}
+}
+
+message UserId {
+    int32 UserId = 1;
+}
+
+message User {
+  int32 UserId = 1;
+  string FirstName = 2;
+  string LastName = 3;
+  string Email = 4;
+}
+
+message CreateUserRequest {
+  string FirstName = 1;
+  string LastName = 2;
+  string Email = 3;
+  string Password = 4;
+}
+
+message LoginUserRequest {
+  string Email = 1;
+  string Password = 2;
+}
+
+message LoginUserResponse {
+  bool IsSuccess = 1;
+  User User = 2;
+}
