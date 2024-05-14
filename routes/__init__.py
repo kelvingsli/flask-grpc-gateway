@@ -1,12 +1,18 @@
 from flask_restx import Api
 
 from .users import api as ns1
+from .auth import api as ns2
 
 authorizations = {
-    'jwt' : {
-        'type' : 'apiKey',
-        'in' : 'header',
-        'name' : 'Authorization'
+    'jwt': {
+        'type': 'apiKey',
+        'in': 'header',
+        'name': 'Authorization'
+    },
+    'jwtrefresh': {
+        'type': 'apiKey',
+        'in': 'header',
+        'name': 'Authorization'
     }
 }
 
@@ -20,3 +26,4 @@ api = Api(
 
 
 api.add_namespace(ns1)
+api.add_namespace(ns2)
