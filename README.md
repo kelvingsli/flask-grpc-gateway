@@ -24,6 +24,7 @@ python -m grpc_tools.protoc -Imain_app/grpclib=./main_app/protos --python_out=. 
 ```
 Note:
 python_out and grpc_python_out path arugments are relative to the path defined in the argument
+
 ---
 ### WSGI
 Eun the following the following command on windows.
