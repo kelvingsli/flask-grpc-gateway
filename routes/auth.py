@@ -4,8 +4,8 @@ from flask_jwt_extended import create_access_token, create_refresh_token, get_jw
 import logging
 
 from .base_route import BaseRoute
-import main_app.grpc.useraccount_pb2 as useraccount_pb2
-import main_app.grpc.useraccount_pb2_grpc as useraccount_pb2_grpc
+import main_app.grpclib.useraccount_pb2 as useraccount_pb2
+import main_app.grpclib.useraccount_pb2_grpc as useraccount_pb2_grpc
 from main_app.models.users import User
 from main_app.models.auth import LoginReqModel
 from main_app.models.base_responses import BaseResponse

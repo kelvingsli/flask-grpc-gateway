@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from main_app.grpc import useraccount_pb2 as main__app_dot_grpc_dot_useraccount__pb2
+from main_app.grpclib import useraccount_pb2 as main__app_dot_grpclib_dot_useraccount__pb2
 
 
 class UserAccountStub(object):
@@ -17,18 +17,18 @@ class UserAccountStub(object):
         """
         self.GetUser = channel.unary_unary(
                 '/useraccount.UserAccount/GetUser',
-                request_serializer=main__app_dot_grpc_dot_useraccount__pb2.UserId.SerializeToString,
-                response_deserializer=main__app_dot_grpc_dot_useraccount__pb2.User.FromString,
+                request_serializer=main__app_dot_grpclib_dot_useraccount__pb2.UserId.SerializeToString,
+                response_deserializer=main__app_dot_grpclib_dot_useraccount__pb2.User.FromString,
                 )
         self.CreateUser = channel.unary_unary(
                 '/useraccount.UserAccount/CreateUser',
-                request_serializer=main__app_dot_grpc_dot_useraccount__pb2.CreateUserRequest.SerializeToString,
-                response_deserializer=main__app_dot_grpc_dot_useraccount__pb2.User.FromString,
+                request_serializer=main__app_dot_grpclib_dot_useraccount__pb2.CreateUserRequest.SerializeToString,
+                response_deserializer=main__app_dot_grpclib_dot_useraccount__pb2.User.FromString,
                 )
         self.LoginUser = channel.unary_unary(
                 '/useraccount.UserAccount/LoginUser',
-                request_serializer=main__app_dot_grpc_dot_useraccount__pb2.LoginUserRequest.SerializeToString,
-                response_deserializer=main__app_dot_grpc_dot_useraccount__pb2.LoginUserResponse.FromString,
+                request_serializer=main__app_dot_grpclib_dot_useraccount__pb2.LoginUserRequest.SerializeToString,
+                response_deserializer=main__app_dot_grpclib_dot_useraccount__pb2.LoginUserResponse.FromString,
                 )
 
 
@@ -59,18 +59,18 @@ def add_UserAccountServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetUser': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUser,
-                    request_deserializer=main__app_dot_grpc_dot_useraccount__pb2.UserId.FromString,
-                    response_serializer=main__app_dot_grpc_dot_useraccount__pb2.User.SerializeToString,
+                    request_deserializer=main__app_dot_grpclib_dot_useraccount__pb2.UserId.FromString,
+                    response_serializer=main__app_dot_grpclib_dot_useraccount__pb2.User.SerializeToString,
             ),
             'CreateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUser,
-                    request_deserializer=main__app_dot_grpc_dot_useraccount__pb2.CreateUserRequest.FromString,
-                    response_serializer=main__app_dot_grpc_dot_useraccount__pb2.User.SerializeToString,
+                    request_deserializer=main__app_dot_grpclib_dot_useraccount__pb2.CreateUserRequest.FromString,
+                    response_serializer=main__app_dot_grpclib_dot_useraccount__pb2.User.SerializeToString,
             ),
             'LoginUser': grpc.unary_unary_rpc_method_handler(
                     servicer.LoginUser,
-                    request_deserializer=main__app_dot_grpc_dot_useraccount__pb2.LoginUserRequest.FromString,
-                    response_serializer=main__app_dot_grpc_dot_useraccount__pb2.LoginUserResponse.SerializeToString,
+                    request_deserializer=main__app_dot_grpclib_dot_useraccount__pb2.LoginUserRequest.FromString,
+                    response_serializer=main__app_dot_grpclib_dot_useraccount__pb2.LoginUserResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -95,8 +95,8 @@ class UserAccount(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/useraccount.UserAccount/GetUser',
-            main__app_dot_grpc_dot_useraccount__pb2.UserId.SerializeToString,
-            main__app_dot_grpc_dot_useraccount__pb2.User.FromString,
+            main__app_dot_grpclib_dot_useraccount__pb2.UserId.SerializeToString,
+            main__app_dot_grpclib_dot_useraccount__pb2.User.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -112,8 +112,8 @@ class UserAccount(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/useraccount.UserAccount/CreateUser',
-            main__app_dot_grpc_dot_useraccount__pb2.CreateUserRequest.SerializeToString,
-            main__app_dot_grpc_dot_useraccount__pb2.User.FromString,
+            main__app_dot_grpclib_dot_useraccount__pb2.CreateUserRequest.SerializeToString,
+            main__app_dot_grpclib_dot_useraccount__pb2.User.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -129,7 +129,7 @@ class UserAccount(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/useraccount.UserAccount/LoginUser',
-            main__app_dot_grpc_dot_useraccount__pb2.LoginUserRequest.SerializeToString,
-            main__app_dot_grpc_dot_useraccount__pb2.LoginUserResponse.FromString,
+            main__app_dot_grpclib_dot_useraccount__pb2.LoginUserRequest.SerializeToString,
+            main__app_dot_grpclib_dot_useraccount__pb2.LoginUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -22,5 +22,8 @@ app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=yamlconfig['jwt']['expi
 
 jwt = JWTManager(app)
 
+def create_app():
+    return app
+
 if __name__ == '__main__':
     app.run(debug=True)
