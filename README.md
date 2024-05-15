@@ -22,3 +22,9 @@ Ensure the protobuf IDL are located in the protos folder. Run the following comm
 ```
 python -m grpc_tools.protoc -Igrpclib=./protos --python_out=. --grpc_python_out=. --proto_path=./protos ./protos/useraccount.proto
 ```
+---
+# WSGI
+Eun the following the following command on windows.
+```
+waitress-serve --host localhost --port 8001 --call app:create_app
+```
