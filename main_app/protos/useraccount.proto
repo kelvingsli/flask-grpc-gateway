@@ -12,6 +12,7 @@ service UserAccount {
   rpc GetUser(UserId) returns (User) {}
   rpc CreateUser(CreateUserRequest) returns (User) {}
   rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {}
+  rpc UpdatePassword(UpdatePasswordRequest) returns (UpdatePasswordResponse) {}
 }
 
 message UserId {
@@ -38,6 +39,16 @@ message LoginUserRequest {
 }
 
 message LoginUserResponse {
+  bool IsSuccess = 1;
+  User User = 2;
+}
+
+message UpdatePasswordRequest {
+  int32 UserId = 1;
+  string Password = 2;
+}
+
+message UpdatePasswordResponse {
   bool IsSuccess = 1;
   User User = 2;
 }

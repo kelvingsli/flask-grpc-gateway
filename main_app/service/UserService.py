@@ -15,3 +15,7 @@ class UserService(BaseGrpcService):
     def LoginUser(self, email, password):
         g_res = self.stub.LoginUser(useraccount_pb2.LoginUserRequest(Email=email, Password=password))
         return g_res
+    
+    def UpdatePassword(self, user_id, password):
+        g_res = self.stub.UpdatePassword(useraccount_pb2.UpdatePasswordRequest(UserId=user_id, Password=password))
+        return g_res

@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"main_app/grpclib/useraccount.proto\x12\x0buseraccount\"\x18\n\x06UserId\x12\x0e\n\x06UserId\x18\x01 \x01(\x05\"J\n\x04User\x12\x0e\n\x06UserId\x18\x01 \x01(\x05\x12\x11\n\tFirstName\x18\x02 \x01(\t\x12\x10\n\x08LastName\x18\x03 \x01(\t\x12\r\n\x05\x45mail\x18\x04 \x01(\t\"Y\n\x11\x43reateUserRequest\x12\x11\n\tFirstName\x18\x01 \x01(\t\x12\x10\n\x08LastName\x18\x02 \x01(\t\x12\r\n\x05\x45mail\x18\x03 \x01(\t\x12\x10\n\x08Password\x18\x04 \x01(\t\"3\n\x10LoginUserRequest\x12\r\n\x05\x45mail\x18\x01 \x01(\t\x12\x10\n\x08Password\x18\x02 \x01(\t\"G\n\x11LoginUserResponse\x12\x11\n\tIsSuccess\x18\x01 \x01(\x08\x12\x1f\n\x04User\x18\x02 \x01(\x0b\x32\x11.useraccount.User2\xd3\x01\n\x0bUserAccount\x12\x33\n\x07GetUser\x12\x13.useraccount.UserId\x1a\x11.useraccount.User\"\x00\x12\x41\n\nCreateUser\x12\x1e.useraccount.CreateUserRequest\x1a\x11.useraccount.User\"\x00\x12L\n\tLoginUser\x12\x1d.useraccount.LoginUserRequest\x1a\x1e.useraccount.LoginUserResponse\"\x00\x42&\n\x0buseraccountB\x10UserAccountProtoP\x01\xa2\x02\x02UAb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"main_app/grpclib/useraccount.proto\x12\x0buseraccount\"\x18\n\x06UserId\x12\x0e\n\x06UserId\x18\x01 \x01(\x05\"J\n\x04User\x12\x0e\n\x06UserId\x18\x01 \x01(\x05\x12\x11\n\tFirstName\x18\x02 \x01(\t\x12\x10\n\x08LastName\x18\x03 \x01(\t\x12\r\n\x05\x45mail\x18\x04 \x01(\t\"Y\n\x11\x43reateUserRequest\x12\x11\n\tFirstName\x18\x01 \x01(\t\x12\x10\n\x08LastName\x18\x02 \x01(\t\x12\r\n\x05\x45mail\x18\x03 \x01(\t\x12\x10\n\x08Password\x18\x04 \x01(\t\"3\n\x10LoginUserRequest\x12\r\n\x05\x45mail\x18\x01 \x01(\t\x12\x10\n\x08Password\x18\x02 \x01(\t\"G\n\x11LoginUserResponse\x12\x11\n\tIsSuccess\x18\x01 \x01(\x08\x12\x1f\n\x04User\x18\x02 \x01(\x0b\x32\x11.useraccount.User\"9\n\x15UpdatePasswordRequest\x12\x0e\n\x06UserId\x18\x01 \x01(\x05\x12\x10\n\x08Password\x18\x02 \x01(\t\"L\n\x16UpdatePasswordResponse\x12\x11\n\tIsSuccess\x18\x01 \x01(\x08\x12\x1f\n\x04User\x18\x02 \x01(\x0b\x32\x11.useraccount.User2\xb0\x02\n\x0bUserAccount\x12\x33\n\x07GetUser\x12\x13.useraccount.UserId\x1a\x11.useraccount.User\"\x00\x12\x41\n\nCreateUser\x12\x1e.useraccount.CreateUserRequest\x1a\x11.useraccount.User\"\x00\x12L\n\tLoginUser\x12\x1d.useraccount.LoginUserRequest\x1a\x1e.useraccount.LoginUserResponse\"\x00\x12[\n\x0eUpdatePassword\x12\".useraccount.UpdatePasswordRequest\x1a#.useraccount.UpdatePasswordResponse\"\x00\x42&\n\x0buseraccountB\x10UserAccountProtoP\x01\xa2\x02\x02UAb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,6 +32,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_LOGINUSERREQUEST']._serialized_end=295
   _globals['_LOGINUSERRESPONSE']._serialized_start=297
   _globals['_LOGINUSERRESPONSE']._serialized_end=368
-  _globals['_USERACCOUNT']._serialized_start=371
-  _globals['_USERACCOUNT']._serialized_end=582
+  _globals['_UPDATEPASSWORDREQUEST']._serialized_start=370
+  _globals['_UPDATEPASSWORDREQUEST']._serialized_end=427
+  _globals['_UPDATEPASSWORDRESPONSE']._serialized_start=429
+  _globals['_UPDATEPASSWORDRESPONSE']._serialized_end=505
+  _globals['_USERACCOUNT']._serialized_start=508
+  _globals['_USERACCOUNT']._serialized_end=812
 # @@protoc_insertion_point(module_scope)

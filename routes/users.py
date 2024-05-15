@@ -3,8 +3,8 @@ from flask_restx import Namespace, Resource
 from flask_jwt_extended import jwt_required
 import logging
 
-from main_app.models.userdto import CreateUserReqDto
-from main_app.models.api.users import CreateUserReqModel
+from main_app.models.userdto import CreateUserReqDto, UserDto
+from main_app.models.api.users import CreateUserReqModel, UpdatePasswordReqModel
 from main_app.models.api.base_responses import BaseResponse
 from main_app.service.UserService import UserService
 
@@ -39,6 +39,26 @@ class GetUser(Resource):
         res = BaseResponse()
         svc = UserService()
         q_userid = int(userid)
-        res._response_data = svc.GetUser(q_userid)
+        res.response_data = svc.GetUser(q_userid)
         return make_response(res.to_json(), 200)
-        
+
+@api.route('/<userid>/password')
+class UpdatePassword(Resource):
+
+    @api.doc('update_password')
+    @api.doc(security='jwt')
+    @api.expect(UpdatePasswordReqModel(api).update_password_req)
+    @jwt_required()
+    def post(self, userid):
+        res = BaseResponse()
+        svc = UserService()
+        q_userid = int(userid)
+        response_data = {}
+        data = svc.UpdatePassword(q_userid, api.payload['password'])
+        if data.IsSuccess == True:
+            response_data['user'] = UserDto(data.User.UserId, data.User.Email, data.User.FirstName, data.User.LastName)
+            res.response_data = response_data
+            return make_response(res.to_json(), 200)
+        else:
+            res.error = 'invalid login'
+            return make_response(res.to_json(), 401)
