@@ -27,7 +27,7 @@ python_out and grpc_python_out path arugments are relative to the path defined i
 
 ---
 ### WSGI
-Eun the following the following command on windows.
+Run the following the following command on windows.
 ```
-waitress-serve --host localhost --port 8001 --call app:create_app
+waitress-serve --host localhost --port 8000 --call app:create_app
 ```
