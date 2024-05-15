@@ -1,7 +1,7 @@
 from flask import request, Response
 from flask_restx import Namespace, Resource, fields, reqparse
 
-class CreateUserReqrModel():
+class CreateUserReqModel():
 
     def __init__(self, api):
         self.api = api
