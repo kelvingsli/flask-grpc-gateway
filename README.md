@@ -1,7 +1,6 @@
 ## Flask Gateway
 ---
 ### Summary
----
 Simple api gateway with basic methods. This service connects to other microservices through gRPC connections.
 
 ---
@@ -22,6 +21,10 @@ Python package dependencies are contained in the requirements.txt. Run the insta
 ```
 pip install -r requirements.txt
 ```
+
+---
+### Configuration
+Use the `sample-config.yaml` and update logging and jwt settings. Save the settings as `config.yaml`
 
 ---
 ### gRPC Stubs
