@@ -1,5 +1,10 @@
 ## Flask Gateway
 ---
+### Summary
+---
+Simple api gateway with basic methods. This service connects to other microservices through gRPC connections.
+
+---
 ### Setup Virtual Environment
 Install virtualenv.
 ```
@@ -10,12 +15,14 @@ Create virtual environment.
 ```
 source .venv/Scripts/activate
 ```
+
 ---
 ### Dependencies
 Python package dependencies are contained in the requirements.txt. Run the installation within virtual environment.
 ```
 pip install -r requirements.txt
 ```
+
 ---
 ### gRPC Stubs
 Ensure the protobuf IDL are located in the protos folder. Run the following command to generate the client and server stubs in the grpclib folder.
