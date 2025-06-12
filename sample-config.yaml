@@ -1,0 +1,34 @@
+logging-config:
+    version: 1
+    disable_existing_loggers: False
+
+    formatters:
+        default:
+            format: '[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+
+    handlers:
+        wsgi:
+            class: logging.StreamHandler
+            level: INFO
+            formatter: default
+
+        time-rotate:
+            class: logging.handlers.TimedRotatingFileHandler
+            level: INFO
+            formatter: default
+            filename: './logs/app.log'
+            when: 'M'
+            interval: 10
+            backupCount: 5
+            delay: False
+            encoding: utf-8
+
+    root:
+        level: INFO
+        handlers: ['wsgi', 'time-rotate']
+
+jwt:
+    secretkey: ''
+    cookiesecure: False
+    expirehours: 24
+    location: 'cookies'
